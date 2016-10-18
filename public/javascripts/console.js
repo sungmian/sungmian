@@ -290,7 +290,7 @@ define(function(require, exports, module){
 		    },
 		    success: function(json){
 		    	if(json.errorCode == 0){  //成功
-		    		alert("上移成功");
+		    		// alert("上移成功");
 		    		getData();
 		    	}else{  //失败
 		    		alert("上移失败");
@@ -327,7 +327,7 @@ define(function(require, exports, module){
 		    },
 		    success: function(json){
 		    	if(json.errorCode == 0){  //成功
-		    		alert("下移成功");
+		    		// alert("下移成功");
 		    		getData();
 		    	}else{  //失败
 		    		alert("下移失败");
@@ -357,7 +357,7 @@ define(function(require, exports, module){
 		    },
 		    success: function(json){
 		    	if(json.errorCode == 0){  //成功
-		    		alert("置顶成功");
+		    		// alert("置顶成功");
 		    		getData();
 		    	}else{  //失败
 		    		alert("置顶失败");
