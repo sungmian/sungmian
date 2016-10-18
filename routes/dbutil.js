@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
 
 //创建model
 function model(env, dbname, modelname, schema){
