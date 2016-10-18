@@ -71,11 +71,11 @@ define(function(require, exports, module){
             $(".button").bind("click", function(){  
                 if(xinxiData.link.indexOf("￥") > -1){
                     $(".copy .kouling").html(xinxiData.link);
-                    $(".copy .desc").html("复制上方的淘口令，打开淘宝即可看到");
+                    // $(".copy .desc").html("复制上方的淘口令，打开淘宝即可看到");
                     $(".copy").show();
                 }else if(xinxiData.link.indexOf("share.laiwang.com") > -1){
                     $(".copy .kouling").html(xinxiData.link);
-                    $(".copy .desc").html("复制上方的喵口令，打开天猫即可看到");
+                    // $(".copy .desc").html("复制上方的喵口令，打开天猫即可看到");
                     $(".copy").show();
                 }else{
                    location.href = xinxiData.link; 
