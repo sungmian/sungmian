@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="尚免网-更专业的免费优惠信息网站，每天纯人工收集筛选全网免费优惠信息，包含0元抢、几乎免费、优惠券和白菜价等类别，是您的赚钱、省钱小帮手！ ">
+    <meta name="Keywords" content="免费,0元抢,优惠,优惠券,白菜价,网上购物,赚钱,省钱,信息,尚免网">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/detail.css">
+    <% include head.html %>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="slider">
+		<div class="slider_list">				
+		</div>
+	</div>
+	<div class="detail_top">
+		<div class="name">
+		</div>
+		<div class="company_renqi">
+			<div class="company"></div>
+			<div class="renqi"></div>
+		</div>
+		<div class="line"></div>
+		<div class="time">
+		</div>
+	</div>
+	<div class="detail_mid">			
+	</div>
+</div>
+<div class="detail_bottom">
+	<div class="foot">
+		<div class="left">
+			<a href="http://www.sungmian.com/">
+				<div class="icon_1"></div>
+				<p>首页</p>			
+			</a>
+		</div>
+		<div class="left" id="follow">
+			<div class="icon_2"></div>
+			<p>关注</p>
+		</div>
+		<div class="button">
+			去看看
+		</div>		
+	</div>
+</div>
+<div class="mod_foot_v2_layer">
+    <div class="inner"> <span class="close"></span>
+        <p>关注尚免公众号<br>获取更多免费</p>
+        <div class="qr"> <img> <span>长按二维码关注</span> </div>
+    </div>
+</div>
+<div class="copy">
+	<div class="inner">
+		<div class="close"></div>
+		<div class="kouling"></div>
+		<div class="desc">复制上方的淘口令，打开淘宝即可看到</div>
+	</div>
+</div>
+<script type="text/javascript" src="./javascripts/zepto.js"></script>
+<% include foot.html %>
+<script type="text/javascript">
+	window.xinxiData = {
+		errCode: '<%=errCode%>',
+		title: '<%=title%>',
+		_id: '<%=_id%>',
+		bigImgList: '<%=bigImgList%>',
+		tuijian: '<%=tuijian%>',
+		huoqu: '<%=huoqu%>',
+		other: '<%=other%>',
+		company: '<%=company%>',
+		show_renqi: '<%=show_renqi%>',
+		active_begin: '<%=active_begin%>',
+		active_end: '<%=active_end%>',
+		isMiao: '<%=isMiao%>',
+		link: '<%=link%>'
+	}
+	if('<%=errCode%>' != '0'){
+		location.href = "http://www.sungmian.com/";
+	}
+	document.title = xinxiData.title;
+</script>
+<script type="text/javascript" src="./javascripts/sea.js"></script>
+<script type="text/javascript">seajs.use('detail', function(m){m.init();})</script>
+</body>
+</html>

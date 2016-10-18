@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/console.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/bootstrap.min.css">
+	<script type="text/javascript" src="./javascripts/jedate.min.js"></script>
+    <title>尚免网-运营管理后台-dev</title>
+</head>
+
+<body>
+<div class="top">
+	<div class="left">运营管理后台</div>
+	<div class="right">
+		<div id="name"></div>
+		<div id="creat" style="display: none;">新建账号</div>
+		<div id="logout">退出</div>
+	</div>
+</div>
+<div class="menu">
+	<div class="title">数据管理</div>
+	<div class="list" data-type="free">0元抢</div>
+	<div class="list" data-type="little">几乎免费</div>
+	<div class="list" data-type="coupon">优惠券</div>
+	<div class="list" data-type="cheep">白菜价</div>
+	<div class="title">统计数据</div>
+	<div class="list" data-type="tongji">查看数据</div>
+</div>
+<div class="content">
+	<!-- 创建新账号结构 -->
+	<div class="creat_new" style="display: none;">
+	    <form role="form" method="post">
+	        <div class="form-group">
+	            <label for="exampleInputEmail1">账号</label>
+	            <input type="text" class="form-control" name="username" placeholder="输入新建账号名称">
+	        </div>
+	        <div class="form-group">
+	            <label for="exampleInputPassword1">密码</label>
+	            <input type="password" class="form-control" name="password" placeholder="输入新建账号密码">
+	        </div>
+			<div class="checkbox">
+				<label>
+				  	<input type="checkbox" name="super">该帐号是否能够创建新账号？
+				</label>
+			</div>	      
+	        <div class="btn btn-primary btn-lg btn-block">创建账号</div>
+	    </form>	
+	</div>
+
+	<!-- 信息列表和填写框 -->
+	<div class="content_right">
+		<div class="xinxi_content">
+			<div class="xinxi_add">新&nbsp&nbsp增</div>
+			<div class="xinxi_list">
+			</div>
+			<div class="page"></div>
+		</div>
+		<div class="xinix_detail">
+			<div class="xinix_detail_one">
+				<p>标题：</p><input type="text" id="title">
+			</div>
+			<div class="xinix_detail_one" style="height: auto;" id="xiaotu">
+				<p>信息小图（1：1）：</p><input type="file" style="width: 72px;">
+				<div class="add_content">
+				</div>				
+				
+			</div>	
+			<div class="xinix_detail_one" style="height: auto;" id="datu">
+				<p>详情大图（1.5：1）：</p><input type="file" style="width: 72px;">
+				<div class="add_content">
+					
+				</div>
+			</div>					
+			<div class="xinix_detail_one">
+				<p>公司：</p><input style="width: 100px;" type="text" id="company"><p style="margin-left: 10px;width: auto;">初始人气：</p><input style="width: 50px;" type="text" id="renqi"><p style="margin-left: 10px;width: auto;">人气系数：</p><input style="width: 50px;" type="text" id="renqi_xishu"><p style="margin-left: 10px;width: auto;">角标：</p><input style="width: 100px;" type="text" id="tag">
+			</div>	
+			<div class="xinix_detail_one">
+				<p>上线时间：</p><input style="width: 200px;" id="show_begin" type="text"  readonly><p>下线时间：</p><input style="width: 200px;" id="show_end" type="text"  readonly>
+			</div>
+			<div class="xinix_detail_one">
+				<p>是否为秒杀：</p><input  style="width: 40px;height:20px;width: 20px;" type="checkbox" id="isMiao">
+			</div>			
+			<div class="xinix_detail_one">
+				<p>活动开始时间：</p><input style="width: 200px;" id="active_begin" type="text"  readonly><p>活动结束时间：</p><input style="width: 200px;" id="active_end" type="text"  readonly>
+			</div>
+			<div class="xinix_detail_one" style="height: auto;">
+				<p>推荐理由：</p><button data-add="tuijian">增加</button><button data-dlt="tuijian" style="margin-left: 15px;">删除</button>
+				<div class="add_content" id="tuijian_list">
+				</div>
+			</div>	
+			<div class="xinix_detail_one" style="height: auto;">
+				<p>获取方式：</p><button data-add="huoqu">增加</button><button data-dlt="huoqu" style="margin-left: 15px;">删除</button>
+				<div class="add_content" id="huoqu_list">
+				</div>
+			</div>	
+			<div class="xinix_detail_one" style="height: auto;">
+				<p>其他：</p><button data-add="other">增加</button><button data-dlt="other" style="margin-left: 15px;">删除</button>
+				<div class="add_content" id="other_list">
+				</div>
+			</div>	
+			<div class="xinix_detail_one">
+				<p>跳转链接：</p><input type="text" id="link">
+			</div>	
+			<div class="xinix_detail_one">
+				<button id="save" style="margin-left: 250px;width: 200px;height: 40px;font-size: 22px;">保&nbsp&nbsp存</button>
+			</div>													
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="./javascripts/jquery.js"></script>
+<script type="text/javascript" src="./javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="./javascripts/sea.js"></script>
+<script type="text/javascript">
+	window.adminInfo = {};
+	window.adminInfo.name = '<%=name%>';
+	window.adminInfo.super = '<%=superAdmin%>';
+
+    jeDate({
+		dateCell:"#show_begin",
+		format:"YYYY/MM/DD hh:mm:ss",
+		isinitVal:true,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00"
+	});
+    jeDate({
+		dateCell:"#show_end",
+		format:"YYYY/MM/DD hh:mm:ss",
+		isinitVal:true,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00"
+	});
+    jeDate({
+		dateCell:"#active_begin",
+		format:"YYYY/MM/DD hh:mm:ss",
+		isinitVal:true,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00"
+	});
+    jeDate({
+		dateCell:"#active_end",
+		format:"YYYY/MM/DD hh:mm:ss",
+		isinitVal:true,
+		isTime:true, //isClear:false,
+		minDate:"2014-09-19 00:00:00"
+	});
+</script>
+<script type="text/javascript">seajs.use('console', function(m){m.init();})</script>
+</body>
+</html>

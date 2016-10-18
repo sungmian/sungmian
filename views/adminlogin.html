@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>管理后台-登录</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/bootstrap.min.css">
+</head>
+
+<body>
+<!-- <div class="header">
+	<form id="login" name="login" method ="post"  action="/adminlogin/check">  
+		<p>用户名：<input id="txtUserName" name="username" type="text" /></p>   
+		<p>密　码：<input id="txtPWD" name="password" type="password" /></p>  
+		<p><input id="subLogin"  name ="subLogin" type="submit" value="提交" /></p>
+	</form>
+</div> -->
+<div class="container" style="margin-top: 300px;">
+    <h3 class="text-center">尚免网-运营管理后台</h3>
+    <div class="row row-md-offset-3">
+        <div class="col-md-4 col-md-offset-4">
+            <form role="form" method="post" action="/adminlogin/check">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">账号</label>
+                    <input type="text" class="form-control" name="username" id="exampleInputEmail1" placeholder="输入账号">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="输入密码">
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">登录</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    window.loginError = '<%=error%>';
+</script>
+<script type="text/javascript" src="./javascripts/jquery.js"></script>
+<script type="text/javascript" src="./javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="./javascripts/sea.js"></script>
+<script type="text/javascript">seajs.use('adminLogin', function(m){m.init();})</script>
+</body>
+</html>

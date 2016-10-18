@@ -1,0 +1,263 @@
+@charset "UTF-8";
+* {
+    -webkit-tap-highlight-color: transparent;
+    outline: 0
+}  
+body{
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    background-color:#eaedf1;  
+} 
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline
+} 
+img {
+    border: 0 none;
+    vertical-align: top
+}
+.top{
+    height: 50px;
+    width: 100%;
+    background-color: #09C;
+}
+.top .left{
+    float: left;
+    font-family:"Microsoft YaHei",微软雅黑;
+    color:white;
+    line-height: 50px;
+    margin-left: 42px;
+    font-size: 20px;
+}
+.top .right{
+    height: 100%;
+    width: auto;
+    float: right;
+}
+.top .right div{
+    height: 100%;
+    float:left;
+    width: 100px;
+    font-family:"Microsoft YaHei",微软雅黑;
+    font-size: 16px;
+    color:white;
+    line-height: 50px;
+    text-align:center;
+    border-left: 1px solid #008fbf;
+}
+.top .right div:hover{ 
+    background-color:#008fbf;
+}
+.menu{
+    float: left;
+    width: 200px;
+    background-color: #293038;
+}
+.content{
+    float: left;
+    background-color: #fff;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.menu .title{
+    width: 100%;
+    height:40px;
+    font-family:"Microsoft YaHei",微软雅黑;
+    font-size: 15px;
+    color:white;
+    line-height: 40px;
+    text-align:center;
+    background-color: #22282e;
+}
+.menu .list{
+    width: 100%;
+    height:40px;
+    font-family:"Microsoft YaHei",微软雅黑;
+    font-size: 15px;
+    color:white;
+    line-height: 40px;
+    text-align:center;
+}
+.menu .list:hover{ 
+    background-color:#22282e;
+}
+.menu .on{ 
+    background-color:#22282e;
+}
+.content .creat_new{
+    width: 400px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+.content .content_right{
+    width: 100%;
+    height: 100%;   
+}
+.content .content_right .xinxi_content{
+    width: 45%;
+    height: 100%;
+    float: left;
+}
+.xinxi_list{
+    height: 80%;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-y:scroll;
+}
+.xinxi_item{
+    height: 40px;
+    width: 100%;
+    margin-top: 5px;
+}
+.xinxi_item .item_title{
+    width: 50%;
+    height: 100%;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    float: left;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    text-overflow: ellipsis;
+    white-space : nowrap; 
+    overflow : hidden;    
+}
+.xinxi_item .item_view{
+    width: 10%;
+    height: 100%;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space : nowrap; 
+    overflow : hidden;
+    color: #999;
+}
+.xinxi_item .item_user{
+    width: 10%;
+    height: 100%;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space : nowrap; 
+    overflow : hidden;
+    color: #999;
+}
+.xinxi_item button{
+    height: 30px;
+    width: 6%;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    background-color: #09C;    
+}
+.xinxi_item button:hover{
+    background-color:#008fbf;
+}
+.content .content_right .xinxi_add{
+    height:30px;
+    width: 80px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    color:white;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #09C;
+}
+.content .content_right .xinxi_add:hover{ 
+    background-color:#008fbf;
+}
+.content .content_right .page{
+    height:50px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.content .content_right .page span{
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+    display: block;
+    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: white;
+    border: 1px solid #eaedf1;
+    color: #09C;
+    line-height: 40px;
+    font-size: 15px;
+    text-align: center;
+}
+.content .content_right .page .on{
+    background-color:#09C;
+    color: white;
+    border:0px;
+}
+.content .content_right .page span:hover{
+    background-color:#09C;
+    color: white;
+    border:0px;
+}
+.content .content_right .xinix_detail{
+    display: none;
+    width: 55%;
+    height: 90%;
+    float: left;
+    padding: 10px;
+    overflow-y:scroll;
+}
+.content .content_right .xinix_detail .xinix_detail_one{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.content .content_right .xinix_detail .xinix_detail_one p{
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-family:"Microsoft YaHei",微软雅黑;
+}
+.content .content_right .xinix_detail .xinix_detail_one input{
+    height: 25px;
+    width: 500px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.content .content_right .xinix_detail .xinix_detail_one button{
+    height:30px;
+    width: 80px;
+    color:white;
+    line-height: 30px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    border: 0;
+    background-color: #09C;
+}
+.content .content_right .xinix_detail .xinix_detail_one button:hover{
+    background-color:#008fbf;
+}
+.content .content_right .xinix_detail .xinix_detail_one .add_content{
+    margin-left: 150px;
+    width: auto;
+    height: auto;
+    margin-top: 15px;
+}
+
+

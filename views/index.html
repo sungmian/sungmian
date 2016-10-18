@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="尚免网-更专业的免费优惠信息网站，每天纯人工收集筛选全网免费优惠信息，包含0元抢、几乎免费、优惠券和白菜价等类别，是您的赚钱、省钱小帮手！ ">
+    <meta name="Keywords" content="免费,0元抢,优惠,优惠券,白菜价,网上购物,赚钱,省钱,信息,尚免网">
+    <title>尚免网-你要的免费，这里都有！</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/index.css">
+	<% include head.html %>
+</head>
+
+<body>
+<div class="wrap">
+	<div class="header">
+	    <img src="./images/head.png">
+	    <div class="button1"></div>
+	    <div class="button2"></div>
+	</div>
+	<div id="tabBefore" style="margin-top: 0.5rem"></div>
+	<div class="tab_content">
+		<div class="sort_tab">
+			<ul>
+				<li data-sort="default">推荐<div class="on_border"></div></li>
+				<div class="li_border"></div>
+				<li data-sort="new">最新<div class="on_border"></div></li>
+				<div class="li_border"></div>
+				<li data-sort="hot">最热<div class="on_border"></div></li>
+			</ul>
+		</div>		
+	</div>	
+	<div class="list">
+															
+	</div>
+	<div class="end"></div>
+	<div class="follow">
+		<p>关注尚免公众号，获取更多免费！</p>
+	</div>
+	<div class="foot">
+		<div class="item" data-index="0">
+			<div class="icon_1">
+				
+			</div>
+			<div class="text">0元抢</div>
+		</div>
+		<div class="item on" data-index="0" style="display: none;">
+			<div class="icon_1">
+				
+			</div>
+			<div class="text">0元抢</div>
+		</div>		
+		<div class="item" data-index="1">
+			<div class="icon_2">
+				
+			</div>
+			<div class="text">几乎免费</div>
+		</div>	
+		<div class="item on" data-index="1" style="display: none;">
+			<div class="icon_2">
+				
+			</div>
+			<div class="text">几乎免费</div>
+		</div>			
+		<div class="item" data-index="2">
+			<div class="icon_3">
+				
+			</div>
+			<div class="text">优惠券</div>
+		</div>
+		<div class="item on" data-index="2" style="display: none;">
+			<div class="icon_3">
+				
+			</div>
+			<div class="text">优惠券</div>
+		</div>		
+		<div class="item" data-index="3">
+			<div class="icon_4">
+				
+			</div>
+			<div class="text">白菜价</div>
+		</div>	
+		<div class="item on" data-index="3" style="display: none;">
+			<div class="icon_4">
+				
+			</div>
+			<div class="text">白菜价</div>
+		</div>					
+	</div>
+</div>
+<a href="javascript:;" class="WX_backtop" style="bottom: 60px; display: none;">返回顶部</a>
+<div class="mod_foot_v2_layer">
+    <div class="inner"> <span class="close"></span>
+        <p>关注尚免公众号<br>获取更多免费</p>
+        <div class="qr"> <img> <span>长按二维码关注</span> </div>
+    </div>
+</div>
+<div class="mask">
+	<div class="rule">
+		<i class="close" style="z-index:100;"></i>
+		<h3 class="title">关于尚免</h3>
+		<div class="line"></div>
+		<div class="content">
+		    <dl>
+		        <dd>尚免网是由一对有梦想的年轻情侣，毅然辞掉工作，于2016年9月在深圳创建。</dd>
+		    </dl>	
+		    <dl>
+		        <dd>尚免网每天纯人工精选筛选全网免费优惠信息，包含0元抢、几乎免费、优惠券和白菜价等类别，只为让您真正得利，成为您的赚钱、省钱小帮手！</dd>
+		    </dl>
+		    <dl>
+		        <dd>我们的初衷，是您花5分钟的碎片时间，浏览尚免网，您就能发现免费，收获优惠。您要的免费，这里都有！</dd>
+		    </dl>	
+		    <dl>
+		        <dd>为了更好的为您服务，请点击页面“关注公众号”按钮关注尚免公众号，它将是您打开免费的钥匙，您可以随时通过尚免公众号浏览尚免网，我们也会每天为您推送最具价值的免费优惠信息。</dd>
+		    </dl>	
+		    <dl>
+		        <dd>如果您和我们一样喜欢尚免网，请把它分享给您的朋友吧。</dd>
+		    </dl>		    
+		    <dl>
+		        <dd>如有任何疑问、建议或合作，请联系我们，联系邮箱：sungmian@163.com。</dd>
+		    </dl>			    	    			    	    	    
+		</div>		
+	</div>
+</div>
+<script type="text/javascript">
+	if('<%=errCode%>' != '0'){
+		location.href = "http://www.sungmian.com/";
+	}
+	window.defaultTab = '<%=tab%>';
+</script>
+<script type="text/javascript" src="./javascripts/zepto.js"></script>
+<% include foot.html %>
+<script type="text/javascript" src="./javascripts/sea.js"></script>
+<script type="text/javascript">seajs.use('index', function(m){m.init();})</script>
+</body>
+</html>
