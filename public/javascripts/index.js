@@ -8,6 +8,7 @@ define(function(require, exports, module){
 		dataType = ["free", "little", "coupon", "cheep"],
 		backHeightNum = 0,
 		backingToOldHeight = true,
+		dataBack = true,
 		listDom = $(".list"),
 		port = location.port == "8080" ? ":8080" : "";
 
@@ -66,22 +67,16 @@ define(function(require, exports, module){
 			_cache = false;
 		if(!pi){
 			listDom.html("");
+			$(".end").hide();
 		}
 		try{
 			if(window.sessionStorage.getItem("sungmian_index_data_" + cacheState.tab + "_" + cacheState.sort + "_" + _pi)){
 				var _data = JSON.parse(window.sessionStorage.getItem("sungmian_index_data_" + cacheState.tab + "_" + cacheState.sort + "_" + _pi));
+				dataBack = true;
 				showData(_data);
 				_cache = true;
-	    		if(_data.length == 0){
-	    			if(!pi){
-	    				$(".end").html("别滑人家了~到底了(´･_･`)").show();
-	    			}else{
-	    				$(".end").html("别滑人家了~到底了(´･_･`)").show();
-	    			}
-	    			return;
-	    		}
 	    		if(_data.length < 10){
-	    			$(".end").html("别滑人家了~到底了(´･_･`)").show();
+	    			$(".end").show();
 	    		}				
 			}
 		}catch(e){
@@ -99,6 +94,7 @@ define(function(require, exports, module){
 		    	pi: _pi
 		    },
 		    success: function(json){
+		    	dataBack = true;
 		    	if(json.errorCode == 0){  //成功
 		    		if(json.data.length > 0){
 						showData(json.data);
@@ -108,16 +104,8 @@ define(function(require, exports, module){
 
 						}
 		    		}
-		    		if(json.data.length == 0){
-		    			if(!pi){
-		    				$(".end").html("别滑人家了~到底了(´･_･`)").show();
-		    			}else{
-		    				$(".end").html("别滑人家了~到底了(´･_･`)").show();
-		    			}
-		    			return;
-		    		}
 		    		if(json.data.length < 10){
-		    			$(".end").html("别滑人家了~到底了(´･_･`)").show();
+		    			$(".end").show();
 		    		}
 		    	}else{  //失败
 
@@ -165,21 +153,10 @@ define(function(require, exports, module){
 		var tabBefore = $("#tabBefore"),
 			tabDom = $(".sort_tab"),
 			listDom = $(".list"),
-			hasScroll = false,
 			oldHeight = 0;
 			backShowHeight = $(window).height()/2,
 			backDom = $(".WX_backtop"),
-			colorList = ['#f05b72', '#d64f44', '#f26522', '#ef4136', '#f47920', '#f58220', '#e0861a', '#7fb80e', '#45b97c', '#50b7c1'],
-			colorLen = colorList.length;
-		// listDom.attr("style", "background-color:" + colorList[parseInt(Math.random() * colorLen)]);
-		// $(".wrap").on("touchend", function(){
-		// 	if(hasScroll){
-		// 		if(Math.random() < 0.5){
-		// 			listDom.attr("style", "background-color:" + colorList[parseInt(Math.random() * colorLen)]);					
-		// 		}
-		// 		hasScroll = false;
-		// 	}
-		// });
+			endDom = $(".end");
 		$(".wrap").on("click", function(){
 			try{
 				window.sessionStorage.setItem("sungmian_index_state", JSON.stringify(cacheState));
@@ -215,9 +192,10 @@ define(function(require, exports, module){
 			$("[data-index='" + cacheState.tab + "']").first().show();
 			$("[data-index='" + cacheState.tab + "']").last().hide();
 			cacheState.tab = $(this).attr("data-index");
+			cacheState.pi = 1;
 			$("[data-index='" + cacheState.tab + "']").first().hide();
 			$("[data-index='" + cacheState.tab + "']").last().show();
-			// $(this).addClass("on").siblings().removeClass("on");
+			window.scrollTo(0, tabBefore.offset().top);
 			getData();
 		});
 		$("[data-sort]").bind("click", function(){
@@ -225,7 +203,9 @@ define(function(require, exports, module){
 				return;
 			}
 			cacheState.sort = $(this).attr("data-sort");
+			cacheState.pi = 1;
 			$(this).addClass("on").siblings().removeClass("on");
+			window.scrollTo(0, tabBefore.offset().top);
 			getData();
 		});	
 		backDom.bind("click", function(){
@@ -242,7 +222,12 @@ define(function(require, exports, module){
 			}else{
 				backDom.hide();
 			}
-			// hasScroll = true;
+			if(document.body.scrollTop + backShowHeight + $(window).height() >= document.body.scrollHeight){
+				if(endDom.css("display") == "none" && dataBack){
+					dataBack = false;
+					getData(++ cacheState.pi);
+				}
+			}
 			cacheState.height = document.body.scrollTop;
 			oldHeight = document.body.scrollTop;
 		}
