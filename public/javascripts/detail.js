@@ -1,7 +1,7 @@
 define(function(require, exports, module){
-	var loopScroll = require("loopScroll");  
+    var loopScroll = require("loopScroll");  
 
-    exports.init = function(){  	
+    exports.init = function(){      
         try{
             if(window.sessionStorage.getItem("sungmian_detail_data_" + xinxiData._id)){
                 xinxiData = JSON.parse(window.sessionStorage.getItem("sungmian_detail_data_" + xinxiData._id));
@@ -84,25 +84,34 @@ define(function(require, exports, module){
         }
         var nowTime = new Date().getTime(),
             timeWenan,
-            timeDom;
-        if(xinxiData.active_begin - nowTime > 0){
-            if(xinxiData.isMiao == "true"){
-                $(".time").html('<div class="time_3" data-time="' + (xinxiData.active_begin - nowTime) + '"></div>');
-                timeDom = $(".time_3");
-                timeWenan = "距离开始还剩：";
-                showTime();
-            }else{
-                $(".time").html('<div class="time_1">开始时间：' + timeFormat(parseInt(xinxiData.active_begin, 10)) + '</div>');
-            }
+            timeDom,
+            _year = new Date(parseInt(xinxiData.active_begin, 10)).getFullYear();
+        if(_year == 2015){
+            $(".time").html('<div class="time_2">活动进行中</div>');
         }else{
-            if(xinxiData.isMiao == "true"){
-                $(".time").html('<div class="time_4" data-time="' + (xinxiData.active_end - nowTime) + '"></div>');
-                timeDom = $(".time_4");
-                timeWenan = "距离结束还剩：";
-                showTime();
+            if(xinxiData.active_begin - nowTime > 0){
+                if(xinxiData.isMiao == "true"){
+                    $(".time").html('<div class="time_3" data-time="' + (xinxiData.active_begin - nowTime) + '"></div>');
+                    timeDom = $(".time_3");
+                    timeWenan = "距离开始还剩：";
+                    showTime();
+                }else{
+                    $(".time").html('<div class="time_1">开始时间：' + timeFormat(parseInt(xinxiData.active_begin, 10)) + '</div>');
+                }
             }else{
-                $(".time").html('<div class="time_2">结束时间：' + timeFormat(parseInt(xinxiData.active_end, 10)) + '</div>');
-            }            
+                if(xinxiData.isMiao == "true"){
+                    $(".time").html('<div class="time_4" data-time="' + (xinxiData.active_end - nowTime) + '"></div>');
+                    timeDom = $(".time_4");
+                    timeWenan = "距离结束还剩：";
+                    showTime();
+                }else{
+                    if(xinxiData.active_end <= nowTime){
+                        $(".time").html('<div class="time_2">已结束</div>');
+                    }else{
+                        $(".time").html('<div class="time_2">结束时间：' + timeFormat(parseInt(xinxiData.active_end, 10)) + '</div>');
+                    }
+                }            
+            }
         }
         function showTime() {
             var endTime = parseInt(timeDom.attr("data-time"), 10);
