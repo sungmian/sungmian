@@ -42,12 +42,16 @@ define(function(require, exports, module){
 		    url: '//www.sungmian.com' + port + '/consoleget?pi=' + _pi + '&type=' + showTab,
 		    data: {},
 		    success: function(json){
-		    	console.log(json.data);
 		    	if(json.data && json.data.length > 0){
 			  		var html = "";
+			  		var nowTime = new Date().getTime();
 			  		xinxiData = json.data;
 			  		json.data.forEach(function(item){
-			  			html += '<div class="xinxi_item" data-id="' + item._id+ '"><a class="item_title" href="javascript:;">' + item.title+ '</a><div class="item_view">' + item.real_renqi+ '</div><div class="item_user">' + item.auther+ '</div><button data-operation="first">置顶</button><button data-operation="up">上移</button><button data-operation="down">下移</button><button data-operation="delete">删除</button></div>';			  			
+			  			var _color = "";
+			  			if(item.show_end <= nowTime){
+			  				_color = "color:#737373";
+			  			}
+			  			html += '<div class="xinxi_item" data-id="' + item._id+ '"><a class="item_title" style="' + _color + '" href="javascript:;">' + item.title+ '</a><div class="item_view">' + item.real_renqi+ '</div><div class="item_user">' + item.auther+ '</div><button data-operation="first">置顶</button><button data-operation="up">上移</button><button data-operation="down">下移</button><button data-operation="delete">删除</button></div>';			  			
 			  		});
 			        $(".xinxi_list").html(html);
 		    	}else{
