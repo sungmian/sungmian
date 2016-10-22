@@ -35,7 +35,7 @@ router.post('/', function(req, res, next) {
     	sortObj.show_renqi = -1;
     }
     model.find({show_end: {"$gte": new Date().getTime(), "$lt": new Date('3000/01/01').getTime()}}, {_id: 1, smallImg: 1, title: 1, show_begin: 1, tag: 1, company: 1, show_renqi: 1}).sort(sortObj).skip(10 * (req.body.pi - 1)).limit(10).exec(function(err, docs){
-    	if(err){
+        if(err){
 	        res.json({
 	            errorCode: 1,
 	            message: err
