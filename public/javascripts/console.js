@@ -42,6 +42,7 @@ define(function(require, exports, module){
 		    url: '//www.sungmian.com' + port + '/consoleget?pi=' + _pi + '&type=' + showTab,
 		    data: {},
 		    success: function(json){
+		    	showNum(json.dataNum);
 		    	if(json.data && json.data.length > 0){
 			  		var html = "";
 			  		var nowTime = new Date().getTime();
@@ -71,6 +72,15 @@ define(function(require, exports, module){
 		    },
 		    dataType: 'json'
 		});			
+	}
+
+	function showNum(data){
+		var total = 0;
+		for(var item in data){
+			total = total + data[item];
+			$("[data-type='" + item + "']").find("span").html(data[item]);			
+		}
+		$(".menu").find(".title").first().find("span").html(total);
 	}
 
 	function showDetail(data){
@@ -369,7 +379,7 @@ define(function(require, exports, module){
 		    },
 		    dataType: 'json'
 		});			
-	}		
+	}	
 
 	function timeFormat(t){
 		var time = new Date(t),
